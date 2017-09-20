@@ -83,7 +83,7 @@ app.get('/', function (req, res) {
 		    },
 		    wifi: function(callback){
 		    	execute('iwlist wlan0 scan | grep ESSID', function(data){
-		    		callback(null, data);
+		    		callback(null, data.toString().trim());
 		    	});
 		    }
 		},

@@ -1,29 +1,107 @@
+<!doctype html>
 <html>
-	<head>
-		<title>Info Raspberry Pi</title>
-	</head>
-	<body style='background-color: #626262;'>
-		
-			<h3><a href="#">Date and time</a></h3>
-			<pre>{{date}}</pre>
-			<h3><a href="#">Uptime:</a></h3>
-			<pre>{{uptime}}</pre>
-			<h3><a href="#">CPU:</a></h3>
-			<pre>{{cpu}}</pre>
-			<h3><a href="#">RAM:</a></h3>
-			<pre>{{ram}}</pre>
-			<h3><a href="#">Temperature:</a></h3>
-			<pre>{{temperature}}</pre>
-			<h3><a href="#">Partitions:</a></h3>
-			<pre>{{partitions}}</pre>
-			<h3><a href="#">Last 5 SSH Login:</a></h3>
-			<pre>{{last_ssh}}</pre>
-			<h3><a href="#">USB:</a></h3>
-			<pre>{{usb}}</pre>
-			<h3><a href="#">Network Interfaces:</a></h3>
-			<pre>{{network}}</pre>
-			<h3><a href="#">Wifi Scan:</a></h3>
-			<pre>{{wifi}}</pre>
-			
-	</body>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Mizumi</title>
+        <style>
+            @charset "UTF-8";
+
+            html, body, div, span, applet, object, iframe,
+            h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+            a, abbr, acronym, address, big, cite, code,
+            del, dfn, em, img, ins, kbd, q, s, samp,
+            small, strike, strong, sub, sup, tt, var,
+            b, u, i, center,
+            dl, dt, dd, ol, ul, li,
+            fieldset, form, label, legend,
+            table, caption, tbody, tfoot, thead, tr, th, td,
+            article, aside, canvas, details, embed,
+            figure, figcaption, footer, header, hgroup,
+            menu, nav, output, ruby, section, summary,
+            time, mark, audio, video {
+                margin: 0;
+                padding: 0;
+                border: 0;
+                font: inherit;
+                font-size: 100%;
+                vertical-align: baseline;
+            }
+
+            html {
+                line-height: 1;
+                -ms-text-size-adjust: 100%;
+                -webkit-text-size-adjust: 100%;
+            }
+
+            html, body {
+                padding: 0;
+                margin: 0;
+                width: 100%;
+                height: 100%;
+            }
+
+            body {
+                color: black;
+                background-color: #f8f8f8;
+                font-family: Helvetica, Arial, sans-serif;
+                text-rendering: optimizeLegibility;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+            }
+
+            pre {
+                padding: 15px;
+                margin: 5px 0px 25px;
+            }
+
+            .title {
+                font-size: 30px;
+                font-weight: bold;
+                margin-bottom: 25px;
+            }
+
+            .dashboard {
+                margin: 25px auto;
+                max-width: 800px;
+                width: 100%;
+            }
+
+            .item {
+                font-size: 16px;
+                font-weight: bold;
+            }
+
+            .value {
+                background-color: #e8e8e8;
+                margin-bottom: 25px;
+                font-family: monospace;
+                white-space: pre-wrap;
+            }
+        </style>
+    </head>
+    <body class="dashboard">
+        <h1 class="title">Mizumi</h1>
+        <div class="item">Date and time</div>
+        <pre class="value">{{date}}</pre>
+        <div class="item">Uptime</div>
+        <pre class="value">{{uptime}}</pre>
+        <div class="item">CPU</div>
+        <pre class="value">{{cpu}}</pre>
+        <div class="item">RAM</div>
+        <pre class="value">{{ram}}</pre>
+        <div class="item">Temperature</div>
+        <pre class="value">{{temperature}}</pre>
+        <div class="item">Partitions</div>
+        <pre class="value">{{partitions}}</pre>
+        <div class="item">Last 5 SSH Login</div>
+        <pre class="value">{{last_ssh}}</pre>
+        <div class="item">USB</div>
+        <pre class="value">{{usb}}</pre>
+        <div class="item">Network Interfaces</div>
+        <pre class="value">{{network}}</pre>
+        <div class="item">Wifi Scan</div>
+        <pre class="value">{{wifi}}</pre>
+    </body>
 </html>

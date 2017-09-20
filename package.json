@@ -8,7 +8,7 @@
     "rpi-dashboard": "./index.js"
   },
   "scripts": {
-    "start": "node ./bin/index.js"
+    "start": "node ./bin/index.js -p 8000"
   },
   "repository": {
     "type": "git",
