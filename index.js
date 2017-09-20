@@ -1,37 +1,28 @@
 #!/usr/bin/env node
 
-/*
-*	RPi Dashboard - Execute at startup: 'crontab -e' and add the following line:
-*	@reboot /usr/local/bin/node /home/pi/Desktop/rpi-dashboard/index.js >/tmp/node_output 2>/tmp/node_error
-*
-*	Author # Rocco Musolino - hackerstribe.com
-*/
-
 var exec = require('child_process').exec;
 var fs = require('fs');
 var async = require('async');
-var Mustache = require('mustache'); // Mustache js
+var Mustache = require('mustache');
 var express = require('express');
 var app = express();
-var argv = require('./lib/args-handler.js'); // yargs (get CLI arguments)
+var argv = require('./lib/args-handler.js');
 
-function execute(command, callback){ // Execute CLI cmds
+function execute(command, callback){
     exec(command, function(error, stdout, stderr){ callback(stdout); });
 };
 
-var SERVER_PORT = argv.port.trim(); // PM2 bug: https://github.com/Unitech/pm2/issues/2022
+var SERVER_PORT = argv.port.trim();
 var TEMPLATE_DIR = __dirname+'/templates/';
 var HOME_TEMPLATE = "home.mustache";
 
 if (isNaN(SERVER_PORT)) throw Error('SERVER_PORT not a number');
 
-// ENTRY POINTS:
-
 app.get('/', function (req, res) {
 	fs.readFile(TEMPLATE_DIR+HOME_TEMPLATE, function (err, template) {
 	  if (err) throw err;
 
-	  // Executing functions in series...
+	 
 		async.series({
 		    date: function(callback){
 				execute('date', function(data){
@@ -77,7 +68,7 @@ app.get('/', function (req, res) {
 				});
 		    },
 		    network: function(callback){
-				execute('/sbin/ifconfig', function(data){ // executable not in default directory needs full path
+				execute('/sbin/ifconfig', function(data){
 					callback(null, data);
 				});
 		    },
@@ -88,7 +79,7 @@ app.get('/', function (req, res) {
 		    }
 		},
 		function(err, obj_to_render) {
-		    // obj_to_render is now equal to: {date: "....", cpu: "..."} etc.
+		   
 		    if (err) res.send(err);
 		    var output = Mustache.render(template.toString(), obj_to_render);
 	  		res.send(output); 
