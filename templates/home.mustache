@@ -163,6 +163,19 @@
             .quote {
                 color: #789922;
             }
+
+            .file-text a, a:visited {
+                color: #34345C;
+                text-decoration: underline;
+            }
+
+            .file-thumb {
+                float: left;
+                margin-left: 20px;
+                margin-right: 20px;
+                margin-top: 3px;
+                margin-bottom: 5px;
+            }
         </style>
     </head>
     <body class="dashboard">
@@ -176,11 +189,19 @@
                 <span class="name-block">
                     <span class="name">Anonymous</span> 
                 </span> 
-                <span class="dateTime" data-utc="1505914742" title="7 hours ago">09/20/17(Wed)15:39:02</span>
+                <span class="dateTime" title="7 hours ago">09/20/17(Wed)15:39:02</span>
                 <span>
                     <a href="#" title="Link to this post">No.</a>
                     <a href="#" title="Reply to this post">62528105</a>
                 </span>
+            </div>
+            <div class="file">
+                <div class="file-text">File: 
+                    <a href="#" target="_blank">1505839525162.jpg</a> (106 KB, 601x601)
+                </div>
+                <a class="file-thumb" href="#" target="_blank">
+                    <img src="https://avatars2.githubusercontent.com/u/31590681?v=4&s=400&u=175e3142ecfb045a5ecddef57b89cf9c46b04cb6" style="height: 125px; width: 125px;">
+                </a>
             </div>
             <blockquote class="post-message">
                 <a href="#" class="quote-link">&gt;&gt;62528068</a><br>
@@ -202,7 +223,7 @@
                 </span>
             </div>
             <blockquote class="post-message">
-                <div class="item">Date and time</div>
+                <div class="item quote">&gt;Date and time</div>
                 <pre class="value">{{date}}</pre>
             </blockquote>
         </div>
@@ -220,7 +241,7 @@
                 </span>
             </div>
             <blockquote class="post-message">
-                <div class="item">Uptime</div>
+                <div class="item quote">&gt;Uptime</div>
                 <pre class="value">{{uptime}}</pre>
             </blockquote>
         </div>
@@ -238,7 +259,7 @@
                 </span>
             </div>
             <blockquote class="post-message">
-                <div class="item">CPU</div>
+                <div class="item quote">&gt;CPU</div>
                 <pre class="value">{{cpu}}</pre>
             </blockquote>
         </div>
@@ -256,7 +277,7 @@
                 </span>
             </div>
             <blockquote class="post-message">
-                <div class="item">RAM</div>
+                <div class="item quote">&gt;RAM</div>
                 <pre class="value">{{ram}}</pre>
             </blockquote>
         </div>
@@ -274,7 +295,7 @@
                 </span>
             </div>
             <blockquote class="post-message">
-                <div class="item">Temperature</div>
+                <div class="item quote">&gt;Temperature</div>
                 <pre class="value">{{temperature}}</pre>
             </blockquote>
         </div>
@@ -292,7 +313,7 @@
                 </span>
             </div>
             <blockquote class="post-message">
-                <div class="item">Partitions</div>
+                <div class="item quote">&gt;Partitions</div>
                 <pre class="value">{{partitions}}</pre>
             </blockquote>
         </div>
@@ -310,7 +331,7 @@
                 </span>
             </div>
             <blockquote class="post-message">
-                <div class="item">Last 5 SSH Login</div>
+                <div class="item quote">&gt;Last 5 SSH Login</div>
                 <pre class="value">{{last_ssh}}</pre>
             </blockquote>
         </div>
@@ -328,7 +349,7 @@
                 </span>
             </div>
             <blockquote class="post-message">
-                <div class="item">USB</div>
+                <div class="item quote">&gt;USB</div>
                 <pre class="value">{{usb}}</pre>
             </blockquote>
         </div>
@@ -346,7 +367,7 @@
                 </span>
             </div>
             <blockquote class="post-message">
-                <div class="item">Network Interfaces</div>
+                <div class="item quote">&gt;Network Interfaces</div>
                 <pre class="value">{{network}}</pre>
             </blockquote>
         </div>
