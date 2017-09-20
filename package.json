@@ -1,35 +1,31 @@
 {
-  "name": "rpi-dashboard",
-  "version": "1.0.3",
-  "description": "Basic Raspberry Pi Node.js Dashboard",
+  "name": "dashboard",
+  "version": "1.0.0",
+  "description": "A dashboard to monitor a Raspberry Pi.",
   "main": "index.js",
-  "preferGlobal": "true",
   "bin": {
-    "rpi-dashboard": "./index.js"
+    "dashboard": "index.js"
+  },
+  "directories": {
+    "lib": "lib"
   },
   "scripts": {
     "start": "node ./bin/index.js -p 8000"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/roccomuso/rpi-dashboard"
+    "url": "git+https://github.com/Mizumichan/dashboard.git"
   },
+  "author": "Mizumi",
+  "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/roccomuso/rpi-dashboard/issues"
+    "url": "https://github.com/Mizumichan/dashboard/issues"
   },
-  "keywords": [
-    "raspberry pi",
-    "rpi",
-    "dashboard",
-    "info",
-    "server"
-  ],
-  "author": "Rocco Musolino",
-  "license": "ISC",
+  "homepage": "https://github.com/Mizumichan/dashboard#readme",
   "dependencies": {
-    "async": "^1.5.0",
-    "express": "^4.13.3",
-    "mustache": "^2.2.0",
-    "yargs": "^4.2.0"
+    "async": "^2.5.0",
+    "express": "^4.15.4",
+    "mustache": "^2.3.0",
+    "yargs": "^9.0.1"
   }
 }
