@@ -18,11 +18,11 @@ var HOME_TEMPLATE = "home.mustache";
 
 if (isNaN(SERVER_PORT)) throw Error('SERVER_PORT not a number');
 
+app.use(express.static(__dirname + '/public'));
+
 app.get('/', function (req, res) {
     fs.readFile(TEMPLATE_DIR+HOME_TEMPLATE, function (err, template) {
-      if (err) throw err;
-
-     
+        if (err) throw err;
         async.series({
             date: function(callback){
                 execute('date', function(data){
@@ -74,14 +74,11 @@ app.get('/', function (req, res) {
             },
         },
         function(err, obj_to_render) {
-           
             if (err) res.send(err);
             var output = Mustache.render(template.toString(), obj_to_render);
             res.send(output); 
         });
-
-    });
-    
+    });   
 });
 
 
