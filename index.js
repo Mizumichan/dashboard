@@ -29,26 +29,8 @@ app.get('/', function (req, res) {
                     callback(null, data);
                 });
             },
-            cpu: function(callback){
-                execute('mpstat', function(data){
-                    if (data)
-                        callback(null, data);
-                    else
-                        callback(null, 'Make sure to have sysstat installed for mpstat command');
-                });
-            },
-            ram: function(callback){
-                execute('free -h', function(data){
-                    callback(null, data);
-                });
-            },
             uptime: function(callback){
                 execute('uptime', function(data){
-                    callback(null, data);
-                });
-            },
-            partitions: function(callback){
-                execute('df -h', function(data){
                     callback(null, data);
                 });
             },
@@ -61,6 +43,26 @@ app.get('/', function (req, res) {
                 execute('last -n 5', function(data){
                     callback(null, data);
                 });
+            },
+            cpu: function(callback){
+                execute('ps aux k-pcpu | head -6', function(data){
+                    callback(null, data);
+                });
+            },
+            ram: function(callback){
+                execute('free -h', function(data){
+                    callback(null, data);
+                });
+            },
+            partitions: function(callback){
+                execute('df -h', function(data){
+                    callback(null, data);
+                });
+            },
+            block_devices: function(callback){
+                execute('lsblk', function(data){
+                    callback(null, data);
+                });       
             },
             usb: function(callback){
                 execute('lsusb', function(data){
@@ -88,3 +90,4 @@ var server = app.listen(SERVER_PORT, function () {
 
   console.log('Dashboard listening at http://%s:%s', host, port);
 });
+
